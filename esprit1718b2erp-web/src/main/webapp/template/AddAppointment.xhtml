@@ -1,0 +1,119 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/index.xhtml">
+
+	<ui:define name="pageTitle">
+				Appointment PAGE
+			</ui:define>
+	<ui:define name="pageContent">
+
+		<div>
+			<br />
+			<h2>Appointments</h2>
+			<br /> <br />
+			
+
+
+
+			<h:form>
+				<p:dataTable class="" value="#{appointmentBean.appointments}" var="e" border="2"
+					rendered="#{not appointmentBean.showForm}">
+					
+					<p:column id="c1">
+						<f:facet name="header">
+							<p:outputLabel value="name" />
+						</f:facet>
+						<p:outputLabel value="#{e.contact.name}" />
+					</p:column>
+					
+					<p:column id="c2">
+						<f:facet name="header">
+							<p:outputLabel value="sujet" />
+						</f:facet>
+						<p:outputLabel value="#{e.sujet}" />
+					</p:column>
+					
+					<p:column id="c3">
+						<f:facet name="header">
+							<p:outputLabel value="type" />
+						</f:facet>
+						<p:outputLabel value="#{e.type}" />
+					</p:column>
+					
+					<p:column id="c4">
+						<f:facet name="header">
+							<p:outputLabel value="appointment Date" />
+						</f:facet>
+						<p:outputLabel value="#{e.appointementDate}" />
+					</p:column>
+					
+					<p:column id="c8">
+					<f:facet name="header">
+						<p:outputLabel value="Action" />
+					</f:facet>
+					<h:commandButton action="#{contactBean.doSelect()}"
+						value="update">
+						<f:setPropertyActionListener value="#{e}"
+							target="#{appointmentBean.appointment}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</p:column>
+				<p:column id="c9">
+					<f:facet name="header">
+						<p:outputLabel value="Action" />
+					</f:facet>
+					
+					
+		<h:commandButton action="#{appointmentBean.doDeleteAppointment()}"
+						value="delete">
+						<f:setPropertyActionListener value="#{e}"
+							target="#{appointmentBean.appointment}"></f:setPropertyActionListener>
+					</h:commandButton>
+					
+					
+				</p:column>
+				</p:dataTable>
+				<br></br>
+				<br></br>
+				<br></br>
+				<h:panelGrid columns="2" cellpadding="5">
+					
+					<p:outputLabel value="Contact : " />
+					<h:selectOneMenu value="#{appointmentBean.selectedContactId}">
+						<f:selectItem itemLabel="please select" />
+						<f:selectItems value="#{appointmentBean.contacts}" var="p"
+							itemLabel="#{p.name}" itemValue="#{p.id}" />
+					</h:selectOneMenu>
+				
+					<p:outputLabel value="sujet : " />
+					<p:inputText value="#{appointmentBean.appointment.sujet}" />
+					
+					<p:outputLabel value="date : " />
+					<p:calendar value="#{appointmentBean.appointment.appointementDate}" >
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</p:calendar>
+					
+					<p:outputLabel value="type : " />
+					<h:selectOneMenu value="#{appointmentBean.appointment.type}">
+						
+						<f:selectItem itemLabel="Office meeting" itemValue="Office meeting" />
+						<f:selectItem itemLabel="Skype meeting" itemValue="Skype meeting" />
+						<f:selectItem itemLabel="Phone meeting" itemValue="Phone meeting"/>
+					</h:selectOneMenu>
+					
+					<h:commandButton action="#{appointmentBean.doAddAppointment()}"
+						value=" Add " />
+					<p:messages styleClass="error" />
+					
+					
+					
+				</h:panelGrid>
+				
+				
+			</h:form>
+		</div>
+
+	</ui:define>
+</ui:composition>

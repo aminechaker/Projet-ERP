@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="458.0" prefWidth="698.0" style="-fx-background-color: #1f4980;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b2.esprit1718b2erp.app.client.controller.LoginController">
+   <children>
+      <Pane prefHeight="458.0" prefWidth="337.0" style="-fx-background-color: #FFFFFF;" />
+      <JFXTextField fx:id="loginText" layoutX="478.0" layoutY="163.0" unFocusColor="#dce7f5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="389.0" layoutY="165.0" text="Login :" textFill="#dce7f5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="376.0" layoutY="236.0" text="Password :" textFill="#dce7f5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXPasswordField fx:id="passwordText" layoutX="478.0" layoutY="232.0" prefHeight="25.0" prefWidth="169.0" unFocusColor="#dce7f5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton layoutX="481.0" layoutY="301.0" onAction="#loginAction" text="Login" textFill="#006fd8">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="440.0" layoutY="346.0" onAction="#createAccountAction" text="Create an Account" textFill="#006fd8">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="114.0" fitWidth="199.0" layoutX="60.0" layoutY="172.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../ressources/logoerp.PNG" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

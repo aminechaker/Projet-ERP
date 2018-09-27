@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit1718b2erp.app.client.controller.AssetsManagementController">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="New asset">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXComboBox fx:id="assettypecombobox" layoutX="180.0" layoutY="50.0" onAction="#setType" prefHeight="29.0" prefWidth="174.0">
+                           <items>
+
+                              <FXCollections fx:factory="observableArrayList">
+
+                              <String fx:value="Vehicule" />
+
+                               <String fx:value="Stock" />
+
+                               <String fx:value="Terrain" />
+          
+                               <String fx:value="Building" />
+
+                              </FXCollections>
+
+                            </items>
+						
+						</JFXComboBox>
+                        <Label layoutX="85.0" layoutY="32.0" prefHeight="36.0" prefWidth="100.0" text="Type:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="79.0" layoutY="106.0" prefHeight="49.0" prefWidth="88.0" text="Name:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="85.0" layoutY="198.0" text="Value:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="assetname" layoutX="185.0" layoutY="130.0" prefHeight="25.0" prefWidth="176.0" />
+                        <JFXTextField fx:id="assetavalue" layoutX="181.0" layoutY="199.0" prefHeight="25.0" prefWidth="183.0" />
+                        <JFXButton fx:id="submitasset" layoutX="234.0" layoutY="319.0" onAction="#SaveAsset" prefHeight="25.0" prefWidth="65.0" text="Submit" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="New value">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="181.0" layoutY="53.0" prefHeight="35.0" prefWidth="157.0" text="Asset name:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="174.0" layoutY="165.0" prefHeight="41.0" prefWidth="147.0" text="New value:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="assetname2" layoutX="186.0" layoutY="120.0" prefHeight="25.0" prefWidth="147.0" />
+                        <JFXTextField fx:id="newvalue" layoutX="184.0" layoutY="238.0" prefHeight="25.0" prefWidth="152.0" />
+                        <JFXButton fx:id="submitnvalue" layoutX="215.0" layoutY="308.0" onAction="#modifyValue" prefHeight="25.0" prefWidth="66.0" text="Submit" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Assets chart">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BarChart fx:id="barchart" layoutX="39.0" layoutY="18.0" prefHeight="335.0" prefWidth="521.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Assets list">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="assetstable" layoutX="68.0" layoutY="43.0" prefHeight="273.0" prefWidth="467.0">
+                          <columns>
+                            <TableColumn fx:id="typeT" prefWidth="148.0" text="Type" />
+                            <TableColumn fx:id="nameT" prefWidth="153.0" text="Name" />
+                              <TableColumn fx:id="valueT" prefWidth="165.0" text="Value" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

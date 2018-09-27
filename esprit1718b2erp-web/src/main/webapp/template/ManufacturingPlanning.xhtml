@@ -1,0 +1,362 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/index.xhtml">
+
+	<ui:define name="pageTitle">
+				Statistic PAGE
+			</ui:define>
+	<ui:define name="pageContent">
+		<script type="text/javascript">
+    function handleDrop(event, ui) {
+        var droppedP = ui.draggable;
+        droppedP.fadeOut('fast');
+    }
+</script>
+		<div>
+			<h:form>
+
+				<p:tabView>
+					<p:tab title="To Do">
+						<h:panelGrid>
+							<p:fieldset legend="To Do">
+								<p:dataGrid id="todo" var="p"
+									value="#{manufacturingPlanning.todo}" columns="3">
+									<p:panel id="pnl" header="#{p.description}"
+										style="text-align:center">
+										<h:panelGrid columns="1" style="width:100%">
+											<h:outputText value="#{p.products}" />
+											<h:outputText value="#{p.dateProduction}" />
+											<p:commandButton oncomplete="PF('productionDialog').show()"
+												icon="ui-icon-search">
+												<f:setPropertyActionListener value="#{p}"
+													target="#{manufacturingPlanning.production}" />
+											</p:commandButton>
+										</h:panelGrid>
+									</p:panel>
+
+									<p:draggable for="pnl" revert="true"
+										handle=".ui-panel-titlebar" stack=".ui-panel" />
+								</p:dataGrid>
+							</p:fieldset>
+
+							<p:fieldset legend="Selected Manufacturing"
+								style="margin-top:20px">
+								<p:outputPanel id="dropAreaToDo">
+									<h:outputText value="Drop Production Here"
+										rendered="#{empty manufacturingPlanning.production}"
+										style="font-size:24px;" />
+									<h:dataTable class="table table-borderless"
+										value="#{manufacturingPlanning.droppedPT}" var="e" border="2"
+										rendered="#{not manufacturingBean.showForm}">
+										<h:column id="c1">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Id" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.id}" />
+											</center>
+										</h:column>
+										<h:column id="c2">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Description" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.description}" />
+											</center>
+										</h:column>
+										<h:column id="c3">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Date" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.dateProduction}" />
+											</center>
+										</h:column>
+										<h:column id="c4">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Status" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.productionStatus}" />
+											</center>
+										</h:column>
+										<h:column id="c5">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Quantity" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.quantite}" />
+											</center>
+										</h:column>
+										<h:column id="c6">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Employee" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.employee}" />
+											</center>
+										</h:column>
+										<h:column id="c7">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Product" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.products}" />
+											</center>
+										</h:column>
+										<h:column id="c8">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Action" />
+												</center>
+											</f:facet>
+											<center>
+												<h:commandButton styleClass="btn btn-warning"
+													action="#{manufacturingPlanning.doUpdateDoing()}"
+													value="=> DOING">
+													<f:setPropertyActionListener value="#{e}"
+														target="#{manufacturingPlanning.production}"></f:setPropertyActionListener>
+												</h:commandButton>
+											</center>
+										</h:column>
+										<h:column id="c9">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Action" />
+												</center>
+											</f:facet>
+											<center>
+												<h:commandButton styleClass="btn btn-danger"
+													action="#{manufacturingBean.doDeleteManufacturing()}"
+													value="delete">
+													<f:setPropertyActionListener value="#{e}"
+														target="#{manufacturingBean.production}"></f:setPropertyActionListener>
+												</h:commandButton>
+											</center>
+										</h:column>
+									</h:dataTable>
+								</p:outputPanel>
+							</p:fieldset>
+
+						</h:panelGrid>
+						<p:droppable tolerance="touch"
+							activeStyleClass="ui-state-highlight" datasource="todo"
+							onDrop="handleDrop">
+							<p:ajax listener="#{manufacturingPlanning.onTodoDrop}"
+								update="dropAreaToDo todo" />
+						</p:droppable>
+					</p:tab>
+					<p:tab title="Doing">
+						<h:panelGrid>
+							<p:fieldset legend="Doing">
+								<p:dataGrid id="doing" var="p"
+									value="#{manufacturingPlanning.doing}" columns="3">
+									<p:panel id="pnl" header="#{p.description}"
+										style="text-align:center">
+										<h:panelGrid columns="1" style="width:100%">
+											<h:outputText value="#{p.products}" />
+											<h:outputText value="#{p.dateProduction}" />
+											<p:commandButton oncomplete="PF('productionDialog').show()"
+												icon="ui-icon-search">
+												<f:setPropertyActionListener value="#{p}"
+													target="#{manufacturingPlanning.production}" />
+											</p:commandButton>
+										</h:panelGrid>
+									</p:panel>
+
+									<p:draggable for="pnl" revert="true"
+										handle=".ui-panel-titlebar" stack=".ui-panel" />
+								</p:dataGrid>
+							</p:fieldset>
+							<p:fieldset legend="Selected Manufacturing"
+								style="margin-top:20px">
+								<p:outputPanel id="dropAreaDoing">
+									<h:outputText value="Drop Production Here"
+										rendered="#{empty manufacturingPlanning.production}"
+										style="font-size:24px;" />
+									<h:dataTable class="table table-borderless"
+										value="#{manufacturingPlanning.droppedPD}" var="e" border="2"
+										rendered="#{not manufacturingBean.showForm}">
+										<h:column id="c1">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Id" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.id}" />
+											</center>
+										</h:column>
+										<h:column id="c2">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Description" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.description}" />
+											</center>
+										</h:column>
+										<h:column id="c3">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Date" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.dateProduction}" />
+											</center>
+										</h:column>
+										<h:column id="c4">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Status" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.productionStatus}" />
+											</center>
+										</h:column>
+										<h:column id="c5">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Quantity" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.quantite}" />
+											</center>
+										</h:column>
+										<h:column id="c6">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Employee" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.employee}" />
+											</center>
+										</h:column>
+										<h:column id="c7">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Product" />
+												</center>
+											</f:facet>
+											<center>
+												<p:outputLabel value="#{e.products}" />
+											</center>
+										</h:column>
+										<h:column id="c8">
+											<f:facet name="header">
+												<center>
+													<p:outputLabel value="Action" />
+												</center>
+											</f:facet>
+											<center>
+												<h:commandButton class="btn btn-success"
+													action="#{manufacturingPlanning.doUpdateDone()}"
+													value="=> DONE">
+													<f:setPropertyActionListener value="#{e}"
+														target="#{manufacturingPlanning.production}"></f:setPropertyActionListener>
+												</h:commandButton>
+											</center>
+										</h:column>
+									</h:dataTable>
+								</p:outputPanel>
+							</p:fieldset>
+						</h:panelGrid>
+						<p:droppable tolerance="touch"
+							activeStyleClass="ui-state-highlight" datasource="doing"
+							onDrop="handleDrop">
+							<p:ajax listener="#{manufacturingPlanning.onDoingDrop}"
+								update="dropAreaDoing doing" />
+						</p:droppable>
+					</p:tab>
+					<p:tab title="Done">
+						<h:panelGrid>
+							<p:fieldset legend="Done">
+								<p:dataGrid id="done" var="p"
+									value="#{manufacturingPlanning.done}" columns="3">
+									<p:panel id="pnl" header="#{p.description}"
+										style="text-align:center">
+										<h:panelGrid var="#{p}"
+											value="#{manufacturingPlanning.production}" columns="1"
+											style="width:100%">
+											<h:outputText value="#{p.products}" />
+											<h:outputText value="#{p.dateProduction}" />
+											<p:commandButton oncomplete="PF('productionDialog').show()"
+												icon="ui-icon-search">
+												<f:setPropertyActionListener value="#{p}"
+													target="#{manufacturingPlanning.production}" />
+											</p:commandButton>
+										</h:panelGrid>
+									</p:panel>
+								</p:dataGrid>
+							</p:fieldset>
+						</h:panelGrid>
+					</p:tab>
+				</p:tabView>
+
+				<p:dialog header="Production Detail" widgetVar="productionDialog"
+					resizable="false" draggable="false" showEffect="fade"
+					hideEffect="fade" modal="true">
+
+					<p:outputPanel id="display">
+						<h:panelGrid columns="2" cellpadding="5"
+							rendered="#{not empty dndCarsView.selectedCar}">
+
+							<h:outputText value="Id:" />
+							<h:outputText value="#{manufacturingPlanning.production.id}"
+								style="font-weight:bold" />
+
+							<h:outputText value="Description:" />
+							<h:outputText
+								value="#{manufacturingPlanning.production.description}"
+								style="font-weight:bold" />
+
+							<h:outputText value="Employee:" />
+							<h:outputText
+								value="#{manufacturingPlanning.production.employee}"
+								style="font-weight:bold" />
+
+							<h:outputText value="Product:" />
+							<h:outputText
+								value="#{manufacturingPlanning.production.products}"
+								style="font-weight:bold" />
+
+							<h:outputText value="Quantity:" />
+							<h:outputText
+								value="#{manufacturingPlanning.production.quantite}"
+								style="font-weight:bold" />
+
+							<h:outputText value="Date:" />
+							<h:outputText
+								value="#{manufacturingPlanning.production.dateProduction}"
+								style="font-weight:bold" />
+						</h:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+
+			</h:form>
+		</div>
+
+
+	</ui:define>
+</ui:composition>

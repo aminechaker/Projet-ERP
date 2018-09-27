@@ -1,0 +1,194 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/index.xhtml">
+
+	<ui:define name="pageTitle">
+				Events PAGE
+			</ui:define>
+	<ui:define name="pageContent">
+
+		<div>
+			<br />
+			<h2>Event</h2>
+			<br /> <br />
+			<h:form>
+
+				<p:tabView>
+					<p:tab title="Add Event">
+
+
+						<h:panelGrid columns="2" cellpadding="5">
+
+							<p:outputLabel value="Name:  " />
+							<p:inputText value="#{eventsBean.event.name}" />
+							<p:outputLabel value="Subject: " />
+							<p:inputText value="#{eventsBean.event.subject}" />
+							<p:outputLabel value="Manager : " />
+							<p:selectOneMenu value="#{eventsBean.idEmployee}">
+								<f:selectItem itemLabel="please select" />
+								<f:selectItems value="#{eventsBean.employees}" var="em"
+									itemLabel="#{em.name}" itemValue="#{em.code}" />
+							</p:selectOneMenu>
+							<p:outputLabel value="Localisation : " />
+							<p:selectOneMenu value="#{eventsBean.event.lieu}">
+								<f:selectItem itemLabel="please select" />
+								<f:selectItem itemLabel="Sousse" itemValue="Sousse" />
+								<f:selectItem itemLabel="Tunis" itemValue="Tunis" />
+								<f:selectItem itemLabel="Sfax" itemValue="Sfax" />
+							</p:selectOneMenu>
+
+							<p:outputLabel value="MaxP" />
+							<p:inputText value="#{eventsBean.event.max}" />
+							<p:outputLabel value="MinP" />
+							<p:inputText value="#{eventsBean.event.min}" />
+							<p:outputLabel value="Event Date" />
+							<p:calendar id="popup" value="#{eventsBean.event.eventDate}">
+								<f:convertDateTime pattern="dd/mm/yyyy" />
+							</p:calendar>
+							<br></br>
+							<h:commandButton action="#{eventsBean.doAddEvent()}"
+								value=" Add " styleClass="ui-priority-primary" />
+							<p:messages styleClass="error" />
+						</h:panelGrid>
+					</p:tab>
+					<br></br>
+					<br></br>
+					<br></br>
+
+
+					<p:tab title="Events List">
+						<p:dataTable class="" value="#{eventsBean.events}" var="e"
+							border="2" rendered="#{not salesBean.showForm}">
+
+							<p:column id="c1">
+								<f:facet name="header">
+									<p:outputLabel value="Name" />
+								</f:facet>
+								<p:outputLabel value="#{e.name}" />
+							</p:column>
+							<p:column id="c2">
+								<f:facet name="header">
+									<p:outputLabel value="Event Date" />
+								</f:facet>
+								<p:outputLabel value="#{e.eventDate}" />
+							</p:column>
+							<p:column id="c3">
+								<f:facet name="header">
+									<p:outputLabel value="MaxP" />
+								</f:facet>
+								<p:outputLabel value="#{e.max}" />
+							</p:column>
+
+							<p:column id="c4">
+								<f:facet name="header">
+									<p:outputLabel value="MinP" />
+								</f:facet>
+								<p:outputLabel value="#{e.min}" />
+							</p:column>
+							<p:column id="c5">
+								<f:facet name="header">
+									<p:outputLabel value="Manager" />
+								</f:facet>
+								<p:outputLabel value="#{e.employee}" />
+							</p:column>
+							<p:column id="c6">
+								<f:facet name="header">
+									<p:outputLabel value="Subject" />
+								</f:facet>
+								<p:outputLabel value="#{e.subject}" />
+							</p:column>
+							<p:column id="c7">
+								<f:facet name="header">
+									<p:outputLabel value="Localisation" />
+								</f:facet>
+								<p:outputLabel value="#{e.lieu}" />
+							</p:column>
+							<p:column id="c8">
+								<f:facet name="header">
+									<p:outputLabel value="Action" />
+								</f:facet>
+								<h:commandButton type="button" onclick="PF('dlg1').show()"
+									value="update">
+									<f:setPropertyActionListener value="#{e}"
+										target="#{eventsBean.event}"></f:setPropertyActionListener>
+								</h:commandButton>
+							</p:column>
+
+							<p:column id="c9">
+								<f:facet name="header">
+									<p:outputLabel value="Action" />
+								</f:facet>
+								<h:commandButton styleClass="btn btn-danger" action="#{eventsBean.doDeleteEvent()}"
+									value="delete">
+									<f:setPropertyActionListener value="#{e}"
+										target="#{eventsBean.event}"></f:setPropertyActionListener>
+								</h:commandButton>
+							</p:column>
+							
+							<p:column id="c10">
+								<f:facet name="header">
+									<p:outputLabel value="Action" />
+								</f:facet>
+								<i class="fa fa-star"/>#{e.rating}
+								<h:commandButton styleClass="btn btn-warning" action="#{eventsBean.rate(e.rating,e)}"
+									value="Rate">
+									<f:setPropertyActionListener value="#{e}"
+										target="#{eventsBean.event}"></f:setPropertyActionListener>
+								</h:commandButton>
+							</p:column>
+							
+		
+							
+							</p:dataTable>
+					</p:tab>
+				</p:tabView>
+
+
+			</h:form>
+
+
+			<p:dialog header="Basic Dialog" widgetVar="dlg1" minHeight="40">
+				<h:form>
+					<h:panelGrid columns="2" cellpadding="5">
+						<p:outputLabel value="Name:  " />
+						<p:inputText value="#{eventsBean.event.name}" />
+						<p:outputLabel value="Subject: " />
+						<p:inputText value="#{eventsBean.event.subject}" />
+						<p:outputLabel value="Manager : " />
+						<p:selectOneMenu value="#{eventsBean.idEmployee}">
+							<f:selectItem itemLabel="please select" />
+							<f:selectItems value="#{eventsBean.employees}" var="em"
+								itemLabel="#{em.name}" itemValue="#{em.code}" />
+						</p:selectOneMenu>
+						<p:outputLabel value="Localisation : " />
+						<p:selectOneMenu value="#{eventsBean.event.lieu}">
+							<f:selectItem itemLabel="please select" />
+							<f:selectItem itemLabel="Sousse" itemValue="Sousse" />
+							<f:selectItem itemLabel="Tunis" itemValue="Tunis" />
+							<f:selectItem itemLabel="Sfax" itemValue="Sfax" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="MaxP" />
+						<p:inputText value="#{eventsBean.event.max}" />
+						<p:outputLabel value="MinP" />
+						<p:inputText value="#{eventsBean.event.min}" />
+						<p:outputLabel value="Event Date" />
+						<p:calendar id="popup" value="#{eventsBean.event.eventDate}">
+							<f:convertDateTime pattern="dd/mm/yyyy" />
+						</p:calendar>
+						<br></br>
+
+
+
+						<h:commandButton action="#{eventsBean.doUpdate()}"
+							value=" Update " styleClass="ui-priority-primary" />
+					</h:panelGrid>
+				</h:form>
+			</p:dialog>
+
+		</div>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b2.esprit1718b2erp.app.client.controller.TaskController">
+   <children>
+      <TabPane prefHeight="700.0" prefWidth="1070.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="New task">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="16.0" layoutY="14.0" text="Project" />
+                        <ComboBox fx:id="projectCB" layoutX="124.0" layoutY="10.0" prefWidth="150.0" />
+                        <Label layoutX="14.0" layoutY="50.0" text="Employee in charge" />
+                        <ComboBox fx:id="employeeCB" layoutX="124.0" layoutY="46.0" prefWidth="150.0" />
+                        <JFXTextField fx:id="taskTitle" layoutX="124.0" layoutY="84.0" prefHeight="25.0" prefWidth="150.0" />
+                        <Label layoutX="15.0" layoutY="88.0" prefHeight="17.0" prefWidth="40.0" text="Title" />
+                        <JFXTextArea fx:id="taskDescription" layoutX="14.0" layoutY="174.0" prefHeight="175.0" prefWidth="263.0" promptText="Description" />
+                        <JFXDatePicker fx:id="startDate" layoutX="419.0" layoutY="10.0" prefHeight="25.0" prefWidth="167.0" />
+                        <Label layoutX="325.0" layoutY="14.0" text="Start date" />
+                        <Label layoutX="328.0" layoutY="50.0" text="End date" />
+                        <JFXDatePicker fx:id="endDate" layoutX="419.0" layoutY="46.0" prefHeight="25.0" prefWidth="167.0" />
+                        <Button fx:id="addFileBtn" layoutX="325.0" layoutY="126.0" mnemonicParsing="false" onAction="#addFileToTask" prefHeight="25.0" prefWidth="76.0" text="Add file" />
+                        <JFXButton fx:id="cancelBtn" layoutX="522.0" layoutY="321.0" onAction="#cancelTask" text="Cancel" />
+                        <JFXButton fx:id="saveBtn" layoutX="458.0" layoutY="321.0" onAction="#addTask" text="Save" />
+                        <Label layoutX="16.0" layoutY="130.0" prefHeight="17.0" prefWidth="40.0" text="Priority" />
+                        <ComboBox fx:id="priorityCB" layoutX="124.0" layoutY="126.0" prefWidth="150.0">
+                       <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Low" />
+          <String fx:value="Medium" />
+          <String fx:value="High" />
+        </FXCollections>
+      </items>      
+                                </ComboBox>
+                        <Label fx:id="fileDirectory" layoutX="325.0" layoutY="166.0" prefHeight="17.0" prefWidth="256.0" /> 
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Show all tasks">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField fx:id="searchTitle" layoutX="392.0" layoutY="14.0" promptText="Insert title" />
+                        <TableView fx:id="taskTable" layoutX="3.0" layoutY="56.0" prefHeight="200.0" prefWidth="594.0">
+                          <columns>
+                            <TableColumn fx:id="titleT" prefWidth="75.0" text="Title" />
+                            <TableColumn fx:id="projectT" prefWidth="75.0" text="Project" />
+                              <TableColumn fx:id="employeeT" prefWidth="64.0" text="Employee" />
+                              <TableColumn fx:id="descriptionT" prefWidth="119.0" text="Description" />
+                              <TableColumn fx:id="priorityT" prefWidth="48.0" text="Priority" />
+                              <TableColumn fx:id="startDateT" prefWidth="66.0" text="Start date" />
+                              <TableColumn fx:id="endDateT" prefWidth="73.0" text="End date" />
+                              <TableColumn fx:id="statusT" prefWidth="73.0" text="Status" />
+                          </columns>
+                        </TableView>
+                        <JFXButton fx:id="updateBtn" layoutX="23.0" layoutY="295.0" onAction="#updateTask" text="Update" />
+                        <JFXButton fx:id="deleteBtn" layoutX="94.0" layoutY="295.0" onAction="#deleteTask" text="Delete" />
+                        <Label layoutX="14.0" layoutY="18.0" text="Sort by" />
+                        <JFXComboBox fx:id="sortCB" layoutX="66.0" layoutY="14.0" onAction="#sortBy" prefHeight="25.0" prefWidth="115.0">
+                        <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Project" />
+          <String fx:value="End date" />
+          <String fx:value="Status" />
+        </FXCollections>
+      </items>      
+                                </JFXComboBox>
+                        <JFXButton fx:id="mailBtn" layoutX="168.0" layoutY="295.0" onAction="#sendMail" text="Alert Employee" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

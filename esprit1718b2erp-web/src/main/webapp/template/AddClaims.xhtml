@@ -1,0 +1,150 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/index.xhtml">
+
+	<ui:define name="pageTitle">
+				Claims PAGE
+			</ui:define>
+	<ui:define name="pageContent">
+
+		<div>
+			<br />
+			<h2>Claims</h2>
+			<br /> <br />
+			<h:form>
+				<p:dataTable class="" value="#{claimsBean.claimss}" var="e" border="2"
+					rendered="#{not claimsBean.showForm}">
+					
+					<p:column id="c1">
+						<f:facet name="header">
+							<p:outputLabel value="name" />
+						</f:facet>
+						<p:outputLabel value="#{e.contact.name}" />
+					</p:column>
+					
+					<p:column id="c2">
+						<f:facet name="header">
+							<p:outputLabel value="description" />
+						</f:facet>
+						<p:outputLabel value="#{e.description}" />
+					</p:column>
+					
+					<p:column id="c3">
+						<f:facet name="header">
+							<p:outputLabel value="date" />
+						</f:facet>
+						<p:outputLabel value="#{e.claimDate}" />
+					</p:column>
+					
+					<p:column id="c4">
+						<f:facet name="header">
+							<p:outputLabel value="status" />
+						</f:facet>
+						<p:outputLabel value="#{e.status}" />
+					</p:column>
+					
+					<p:column id="c8">
+					<f:facet name="header">
+						<p:outputLabel value="Action" />
+					</f:facet>
+					<h:commandButton action="#{contactBean.doSelect()}"
+						value="update">
+						<f:setPropertyActionListener value="#{e}"
+							target="#{claimsBean.claims}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</p:column>
+				<p:column id="c9">
+					<f:facet name="header">
+						<p:outputLabel value="Action" />
+					</f:facet>
+					<h:commandButton action="#{claimsBean.doDeleteClaims()}"
+						value="delete">
+						<f:setPropertyActionListener value="#{e}"
+							target="#{claimsBean.claims}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</p:column>
+				</p:dataTable>
+				
+				<br></br>
+				<br></br>
+				<br></br>
+				
+				<p:dataTable class="" value="#{claimsBean.claimsUntreated}" var="e" border="2"
+					rendered="#{not claimsBean.showForm}">
+					
+					<p:column id="c1">
+						<f:facet name="header">
+							<p:outputLabel value="name" />
+						</f:facet>
+						<p:outputLabel value="#{e.contact.name}" />
+					</p:column>
+					
+					<p:column id="c2">
+						<f:facet name="header">
+							<p:outputLabel value="description" />
+						</f:facet>
+						<p:outputLabel value="#{e.description}" />
+					</p:column>
+					
+					<p:column id="c3">
+						<f:facet name="header">
+							<p:outputLabel value="date" />
+						</f:facet>
+						<p:outputLabel value="#{e.claimDate}" />
+					</p:column>
+					
+					<p:column id="c4">
+						<f:facet name="header">
+							<p:outputLabel value="status" />
+						</f:facet>
+						<p:outputLabel value="#{e.status}" />
+					</p:column>
+					
+					<p:column id="c8">
+					<f:facet name="header">
+						<p:outputLabel value="Action" />
+					</f:facet>
+					<h:commandButton action="#{claimsBean.doTreatClaims()}"
+						value="treat Claim">
+						<f:setPropertyActionListener value="#{e}"
+							target="#{claimsBean.claims}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</p:column>
+				
+				
+				</p:dataTable>
+				
+				
+				
+				<br></br>
+				<br></br>
+				<br></br>
+				
+				
+				
+				
+				<h:panelGrid columns="2" cellpadding="5">
+					
+					<p:outputLabel value="Contact : " />
+					<h:selectOneMenu value="#{claimsBean.selectedContactId}">
+						<f:selectItem itemLabel="please select" />
+						<f:selectItems value="#{claimsBean.contacts}" var="p"
+							itemLabel="#{p.name}" itemValue="#{p.id}" />
+					</h:selectOneMenu>
+				
+					<p:outputLabel value="description : " />
+					<p:inputText value="#{claimsBean.claims.description}" />
+					
+					<h:commandButton action="#{claimsBean.doAddClaims()}"
+						value=" Add " />
+					<p:messages styleClass="error" />
+				</h:panelGrid>
+				
+				
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

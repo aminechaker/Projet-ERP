@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A7A7A7;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b2.esprit1718b2erp.app.client.controller.UpdateSaleController">
+   <children>
+      <JFXComboBox fx:id="ClientU" layoutX="127.0" layoutY="45.0" prefHeight="25.0" prefWidth="135.0" unFocusColor="#dce7f5" />
+      <JFXComboBox fx:id="SettelmentU" layoutX="127.0" layoutY="99.0" prefHeight="25.0" prefWidth="135.0" unFocusColor="#dce7f5">
+       <items>
+                     <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Cheque" />
+          <String fx:value="Liquide" />
+          <String fx:value="Credit" />
+        </FXCollections>
+      </items>
+	  
+      </JFXComboBox>
+      <JFXComboBox fx:id="ProductU" layoutX="127.0" layoutY="154.0" prefHeight="25.0" prefWidth="135.0" unFocusColor="#dce7f5" />
+      <JFXComboBox fx:id="TaxesU" layoutX="132.0" layoutY="241.0" prefHeight="25.0" prefWidth="135.0" unFocusColor="#dce7f5">
+       <items>
+                     <FXCollections fx:factory="observableArrayList">
+          <String fx:value="7%" />
+          <String fx:value="13%" />
+          <String fx:value="19%" />
+        </FXCollections>
+      </items>
+      </JFXComboBox>
+      <JFXTextField fx:id="QuantityU" layoutX="132.0" layoutY="200.0" unFocusColor="#dce7f5" />
+      <DatePicker fx:id="DateU" layoutX="164.0" layoutY="285.0" />
+      <Label layoutX="41.0" layoutY="49.0" text="Client" textFill="#1f4980">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="41.0" layoutY="104.0" text="Settelment" textFill="#1f4980">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="41.0" layoutY="158.0" text="Product" textFill="#1f4980">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="41.0" layoutY="205.0" text="Quantity" textFill="#1f4980">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="41.0" layoutY="245.0" text="Taxes" textFill="#1f4980">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="41.0" layoutY="285.0" text="Expiration Date" textFill="#1f4980">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <JFXButton layoutX="274.0" layoutY="331.0" onAction="#update" text="Update" textFill="#006fd8">
+         <font>
+            <Font size="16.0" />
+         </font></JFXButton>
+   </children>
+</AnchorPane>

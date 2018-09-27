@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b2.esprit1718b2erp.app.client.controller.InventoryManagementController">
+   <children>
+      <TabPane prefHeight="700.0" prefWidth="1070.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Add new Product Inventory">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A7A7A7;">
+                     <children>
+                        <Label layoutX="366.0" layoutY="100.0" text="Description :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="descText" layoutX="490.0" layoutY="98.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="productComboBox" layoutX="490.0" layoutY="178.0" onAction="#getPrice" prefHeight="25.0" prefWidth="174.0" unFocusColor="#dce7f5" />
+                        <Label layoutX="366.0" layoutY="177.0" text="Product :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="348.0" layoutY="314.0" text="Inventory Date :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="inventoryDate" layoutX="488.0" layoutY="315.0" />
+                        <Label layoutX="335.0" layoutY="384.0" text="Counted Quantity :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="quantityText" layoutX="493.0" layoutY="380.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXTextField>
+                        <Label layoutX="346.0" layoutY="452.0" text="Employee :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="priceText" editable="false" layoutX="490.0" layoutY="236.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXTextField>
+                        <Label layoutX="366.0" layoutY="238.0" text="Price :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="467.0" layoutY="530.0" onAction="#addProductInventory" text="Add" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXComboBox fx:id="EmployeeComboBox" layoutX="496.0" layoutY="453.0" prefHeight="25.0" prefWidth="168.0" unFocusColor="#dce7f5" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Products Inventories List">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A7A7A7;">
+                     <children>
+                        <TableView fx:id="productInventoryTable" layoutX="190.0" layoutY="145.0" prefHeight="369.0" prefWidth="780.0">
+                          <columns>
+                            <TableColumn fx:id="descT" prefWidth="140.0" text="Description" />
+                            <TableColumn fx:id="dateT1" prefWidth="132.0" text="Date" />
+                              <TableColumn fx:id="productT1" prefWidth="125.0" text="Product" />
+                              <TableColumn fx:id="quantityT1" prefWidth="106.0" text="Quantity" />
+                              <TableColumn fx:id="priceT1" prefWidth="102.0" text="Price" />
+                              <TableColumn fx:id="employeeT1" prefWidth="174.0" text="Employee" />
+                          </columns>
+                        </TableView>
+                        <JFXRadioButton fx:id="date_radio1" layoutX="391.0" layoutY="49.0" onAction="#sortProductByDate" prefHeight="27.0" prefWidth="97.0" text="Date" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="price_radio1" layoutX="677.0" layoutY="49.0" onAction="#sortProductByPrice" prefHeight="27.0" prefWidth="97.0" text="Price" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="quantity_radio1" layoutX="525.0" layoutY="49.0" onAction="#sortProductByQuantity" prefHeight="27.0" prefWidth="97.0" text="Quantity" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <Label layoutX="299.0" layoutY="49.0" text="Sort By:" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Add new Raw Material Inventory">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A7A7A7;">
+                     <children>
+                        <Label layoutX="356.0" layoutY="101.0" text="Description :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="descText1" layoutX="499.0" layoutY="98.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="rawmaterialComboBox" layoutX="499.0" layoutY="153.0" prefHeight="25.0" prefWidth="170.0" unFocusColor="#dce7f5" />
+                        <Label layoutX="356.0" layoutY="156.0" text="Raw Material :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="inventoryDate1" layoutX="497.0" layoutY="217.0" />
+                        <Label layoutX="356.0" layoutY="220.0" text="Date :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="quantityText1" layoutX="499.0" layoutY="277.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXTextField>
+                        <Label layoutX="331.0" layoutY="283.0" text="Counted Quantity :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="355.0" layoutY="360.0" text="Employee :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox fx:id="employeeComboBox1" layoutX="498.0" layoutY="357.0" prefHeight="25.0" prefWidth="170.0" unFocusColor="#dce7f5" />
+                        <JFXButton layoutX="442.0" layoutY="432.0" onAction="#addRawMaterailInventory" text="Add" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Raw Materials Inventories List">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A7A7A7;">
+                     <children>
+                        <JFXRadioButton fx:id="date_radio2" layoutX="463.0" layoutY="57.0" onAction="#sortMaterialByDate" text="Date" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="quantity_radio2" layoutX="565.0" layoutY="57.0" onAction="#sortMaterialByQuantity" text="Quantity" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXRadioButton>
+                        <TableView fx:id="rawmaterialInventoryTable" layoutX="220.0" layoutY="150.0" prefHeight="373.0" prefWidth="714.0">
+                          <columns>
+                            <TableColumn fx:id="desc" prefWidth="149.0" text="Description" />
+                            <TableColumn fx:id="dateT2" prefWidth="165.0" text="Date" />
+                              <TableColumn fx:id="rawmaterialT2" prefWidth="156.0" text="Raw Material" />
+                              <TableColumn fx:id="quantityT2" prefWidth="107.0" text="Quantity" />
+                              <TableColumn fx:id="employeeT2" prefWidth="136.0" text="Employee" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

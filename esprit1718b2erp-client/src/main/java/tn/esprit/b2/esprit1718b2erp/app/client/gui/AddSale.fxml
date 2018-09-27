@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b2.esprit1718b2erp.app.client.controller.AddSaleCotroller">
+   <children>
+      <TabPane prefHeight="650.0" prefWidth="1070.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="order">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="402.0" prefWidth="542.0">
+                     <children>
+                        <Text fill="#006fd8" layoutX="34.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quotation">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <JFXButton fx:id="saveOrder" layoutX="531.0" layoutY="418.0" onAction="#saveOrder" text="Save" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="validateOrder" layoutX="603.0" layoutY="418.0" onAction="#validateOrder" text="Validate" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="cancelOrder" layoutX="631.0" layoutY="68.0" onAction="#cancelOrder" text="Refrech List" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                        <Text fill="#1f4980" layoutX="14.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Text>
+                        <JFXComboBox fx:id="clientCombobox" layoutX="167.0" layoutY="105.0" prefHeight="25.0" prefWidth="100.0" />
+                        <Text fill="#1f4980" layoutX="14.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settlement" wrappingWidth="116.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Text>
+                        <JFXComboBox fx:id="settlementCombobox" layoutX="167.0" layoutY="152.0" prefHeight="25.0" prefWidth="97.0">
+           <items>
+                     <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Cheque" />
+          <String fx:value="Liquide" />
+          <String fx:value="Credit" />
+        </FXCollections>
+      </items>
+      </JFXComboBox>
+                        <Text fill="#1f4980" layoutX="14.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product" wrappingWidth="72.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Text>
+                        <JFXComboBox fx:id="productCombobox" layoutX="167.0" layoutY="189.0" prefHeight="25.0" prefWidth="97.0" />
+                        <DatePicker fx:id="expirationDate" layoutX="144.0" layoutY="321.0" />
+                        <Text fill="#1f4980" layoutX="16.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expiration Date" wrappingWidth="140.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Text>
+                        <Text fill="#1f4980" layoutX="14.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" wrappingWidth="72.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Text>
+                        <JFXTextField fx:id="quantity" layoutX="167.0" layoutY="223.0" prefHeight="25.0" prefWidth="109.0" />
+                        <Text fill="#1f4980" layoutX="14.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taxes" wrappingWidth="72.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Text>
+                        <JFXComboBox fx:id="taxeCombobox" layoutX="167.0" layoutY="265.0" prefHeight="25.0" prefWidth="100.0">
+        	<items>
+                     <FXCollections fx:factory="observableArrayList">
+          <String fx:value="7%" />
+          <String fx:value="13%" />
+          <String fx:value="19%" />
+        </FXCollections>
+      </items> 
+	    
+      </JFXComboBox>
+                        <TableView fx:id="Table" layoutX="339.0" layoutY="126.0" prefHeight="278.0" prefWidth="415.0">
+                          <columns>
+                            <TableColumn fx:id="productT" prefWidth="116.0" text="Product" />
+                            <TableColumn fx:id="clientT" prefWidth="82.0" text="Client" />
+                              <TableColumn fx:id="quantityT" prefWidth="65.0" text="Quantity" />
+                              <TableColumn fx:id="taxesT" prefWidth="62.0" text="Taxes" />
+                              <TableColumn fx:id="finalpriceT" prefWidth="89.0" text="Final Price" />
+                          </columns>
+                        </TableView>
+                       
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="billing">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="#006fd8" layoutX="26.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Text>
+                        <JFXComboBox fx:id="clientComboBoxBill" layoutX="116.0" layoutY="67.0" prefHeight="25.0" prefWidth="124.0" unFocusColor="#dce7f5" />
+                        <JFXButton layoutX="294.0" layoutY="46.0" onAction="#loadBill" text="Load Bill" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                        <JFXButton layoutX="407.0" layoutY="46.0" onAction="#cancelBill" text="Refresh List" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                        <Label fx:id="total" layoutX="381.0" layoutY="333.0" />
+                        <TableView fx:id="TableTB" layoutX="41.0" layoutY="142.0" prefHeight="200.0" prefWidth="594.0">
+                          <columns>
+                            <TableColumn fx:id="productTB" prefWidth="138.0" text="Product" />
+                            <TableColumn fx:id="quantityTB" prefWidth="112.0" text="Quantity" />
+                              <TableColumn fx:id="unitpriceTB" prefWidth="150.0" text="Unit Price" />
+                              <TableColumn fx:id="taxesTB" prefWidth="72.0" text="Taxe" />
+                              <TableColumn fx:id="totalTB" prefWidth="121.0" text="Total" />
+                          </columns>
+                        </TableView>
+                        <JFXButton layoutX="594.0" layoutY="396.0" onAction="#printBill" text="Print" textFill="#dce7f5" />
+                        <Label layoutX="453.0" layoutY="350.0" prefHeight="27.0" prefWidth="48.0" text="Total :" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                        <Label fx:id="totalLabel" layoutX="567.0" layoutY="350.0" prefHeight="27.0" prefWidth="90.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="catalog">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton layoutX="33.0" layoutY="31.0" text="Create" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="searchOrder1" layoutX="58.0" layoutY="100.0" onAction="#searchOrder" text="Search" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                        <JFXRadioButton fx:id="SettlmentS" layoutX="140.0" layoutY="35.0" onAction="#SettelmentS" text="Settelment" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXRadioButton>
+                        <JFXRadioButton fx:id="TaxesS" layoutX="274.0" layoutY="35.0" onAction="#TaxesS" text="Taxes" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXRadioButton>
+                        <JFXRadioButton fx:id="ClientS" layoutX="394.0" layoutY="35.0" onAction="#ClientS" text="Client" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXRadioButton>
+                        <JFXTextField fx:id="searchOrder" layoutX="140.0" layoutY="100.0" unFocusColor="#dce7f5" />
+                         <TableView fx:id="Table1" layoutX="58.0" layoutY="196.0" prefHeight="230.0" prefWidth="609.0">
+                          <columns>
+                            <TableColumn fx:id="productT1" prefWidth="129.0" text="Product" />
+                            <TableColumn fx:id="clientT1" prefWidth="133.0" text="Client" />
+                              <TableColumn fx:id="quantityT1" prefWidth="79.0" text="Quantity" />
+                              <TableColumn fx:id="taxesT1" prefWidth="112.0" text="Taxes" />
+                              <TableColumn fx:id="finalpriceT1" prefWidth="155.0" text="Final Price" />
+                          </columns>
+                        </TableView>
+                         <JFXButton fx:id="deleteOrder" layoutX="495.0" layoutY="440.0" onAction="#deleteOrder" text="Delete" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="updateOrder" layoutX="581.0" layoutY="440.0" onAction="#updateOrder" text="Update" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                        <JFXButton layoutX="590.0" layoutY="100.0" onAction="#refreshList" text="Refresh List" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                        <JFXComboBox fx:id="ClientSCombobox" layoutX="350.0" layoutY="100.0" onAction="#ClientSCombobox" prefHeight="25.0" prefWidth="128.0" unFocusColor="#dce7f5" />
+                        <JFXButton fx:id="validateOrder1" layoutX="395.0" layoutY="440.0" onAction="#ValidateOrder1" text="Validate" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

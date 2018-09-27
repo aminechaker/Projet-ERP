@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b2.esprit1718b2erp.app.client.controller.ProductionPlanningController">
+   <children>
+      <Text fill="#006fd8" layoutX="165.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To Do" wrappingWidth="67.4052734375">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="#006fd8" layoutX="946.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Done" wrappingWidth="49.4052734375">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="#006fd8" layoutX="555.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doing" wrappingWidth="49.4052734375">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Separator fx:id="sep2" layoutX="792.0" layoutY="39.0" orientation="VERTICAL" prefHeight="3000.0" prefWidth="6.0" />
+      <Separator fx:id="sep1" layoutX="386.0" layoutY="39.0" orientation="VERTICAL" prefHeight="3000.0" prefWidth="6.0" />
+      <Pane fx:id="pane1" layoutX="10.0" layoutY="52.0" prefHeight="3000.0" prefWidth="1140.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,159 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/index.xhtml">
+
+	<ui:define name="pageTitle">
+				Contact PAGE
+			</ui:define>
+	<ui:define name="pageContent">
+
+		<div>
+			<br />
+			<h2>Contacts</h2>
+			<br /> <br />
+			<h:form>
+				<p:dataTable class="table table-borderless" value="#{contactBean.contacts}" var="e" border="2"
+					rendered="#{not contactBean.showForm}">
+					
+					<p:column id="c1">
+						<f:facet name="header">
+							<p:outputLabel value="name" />
+						</f:facet>
+						<p:outputLabel value="#{e.name}" />
+					</p:column>
+					
+					<p:column id="c2">
+						<f:facet name="header">
+							<p:outputLabel value="adresse" />
+						</f:facet>
+						<p:outputLabel value="#{e.adresse}" />
+					</p:column>
+					
+					<p:column id="c3">
+						<f:facet name="header">
+							<p:outputLabel value="region" />
+						</f:facet>
+						<p:outputLabel value="#{e.region}" />
+					</p:column>
+					
+					<p:column id="c4">
+						<f:facet name="header">
+							<p:outputLabel value="email" />
+						</f:facet>
+						<p:outputLabel value="#{e.email}" />
+					</p:column>
+					
+					<p:column id="c5">
+						<f:facet name="header">
+							<p:outputLabel value="mobile" />
+						</f:facet>
+						<p:outputLabel value="#{e.mobile}" />
+					</p:column>
+					
+					<p:column id="c6">
+						<f:facet name="header">
+							<p:outputLabel value="activitySector" />
+						</f:facet>
+						<p:outputLabel value="#{e.activitySector}" />
+					</p:column>
+					
+					<p:column id="c7">
+						<f:facet name="header">
+							<p:outputLabel value="type" />
+						</f:facet>
+						<p:outputLabel value="#{e.type}" />
+					</p:column>
+					
+					<p:column id="c8">
+					<f:facet name="header">
+						<p:outputLabel value="Action" />
+					</f:facet>
+					<h:commandButton action="#{contactBean.doSelect()}"
+						value="update">
+						<f:setPropertyActionListener value="#{e}"
+							target="#{contactBean.contact}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</p:column>
+				<p:column id="c9">
+					<f:facet name="header">
+						<p:outputLabel value="Action" />
+					</f:facet>
+					<h:commandButton action="#{contactBean.doDeleteContact()}"
+						value="delete">
+						<f:setPropertyActionListener value="#{e}"
+							target="#{contactBean.contact}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</p:column>
+				</p:dataTable>
+				<br></br>
+				<br></br>
+				<br></br>
+				<h:panelGrid columns="2" cellpadding="5">
+				
+					<p:outputLabel value="name : " />
+					<p:inputText value="#{contactBean.contact.name}" />
+					<p:outputLabel value="adresse : " />
+					<p:inputText value="#{contactBean.contact.adresse}" />
+					<p:outputLabel value="Email: " />
+					<p:inputText value="#{contactBean.contact.email}" />
+					<p:outputLabel value="mobile : " />
+					<p:inputText value="#{contactBean.contact.mobile}" />
+					
+					<p:outputLabel value="region : " />
+					<h:selectOneMenu value="#{contactBean.contact.region}">
+						
+						<f:selectItem itemLabel="South America" itemValue="South America" />
+						<f:selectItem itemLabel="North America" itemValue="North America" />
+						<f:selectItem itemLabel="Central America" itemValue="Central America"/>
+						<f:selectItem itemLabel="Africa" itemValue="Africa" />
+						<f:selectItem itemLabel="Asia" itemValue="Asia" />
+						<f:selectItem itemLabel="Europe" itemValue="Europe" />
+						<f:selectItem itemLabel="caribbean" itemValue="caribbean" />
+						<f:selectItem itemLabel="Oceania" itemValue="Oceania"/>
+					</h:selectOneMenu>
+					
+					<p:outputLabel value="activity sector : " />
+					<h:selectOneMenu value="#{contactBean.contact.activitySector}">
+						
+						<f:selectItem itemLabel="Banking and insurance" itemValue="Banking and insurance" />
+						<f:selectItem itemLabel="Technology" itemValue="Technology" />
+						<f:selectItem itemLabel="Telecommunications" itemValue="Telecommunications" />
+						<f:selectItem itemLabel="Health" itemValue="Health" />
+						<f:selectItem itemLabel="Services" itemValue="Services" />
+						<f:selectItem itemLabel="Public sector" itemValue="Public sector"/>
+						<f:selectItem itemLabel="Industry" itemValue="Industry" />
+						<f:selectItem itemLabel="Consumer goods" itemValue="Consumer goods" />
+					</h:selectOneMenu>
+					
+					<p:outputLabel value="contact type : " />
+					<h:selectOneMenu value="#{contactBean.contact.type}">
+						<f:selectItem  itemLabel="Client" itemValue="Client" />
+						<f:selectItem  itemLabel="Company" itemValue="Company"/>
+						<f:selectItem  itemLabel="Provider" itemValue="Provider"/>
+						
+					</h:selectOneMenu>
+					
+					<h:commandButton action="#{contactBean.doAddContact()}"
+						value=" Add " />
+					<p:messages styleClass="error" />
+				</h:panelGrid>
+				<br></br>
+				<br></br>
+				
+				
+     
+   
+ 
+    
+
+				
+				
+				
+			</h:form>
+		</div>
+
+	</ui:define>
+</ui:composition>

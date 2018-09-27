@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/index.xhtml">
+
+	<ui:define name="pageTitle">
+				Statistic PAGE
+			</ui:define>
+	<ui:define name="pageContent">
+
+		<div>
+			<br />
+			<h2>Sales Statistics</h2>
+			<br /> <br />
+			<p:chart type="pie" model="#{salesStatistics.pieModel1}" style="width:600px;height:350px" />
+			<br></br>
+			<br></br>
+			<p:chart type="bar" model="#{salesStatistics.barModel}" style="height:300px"/>
+		</div>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,98 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/index.xhtml">
+
+	<ui:define name="pageTitle">
+				Raw Material PAGE
+			</ui:define>
+	<ui:define name="pageContent">
+
+		<div>
+			<br />
+			<h2>Raw Material</h2>
+			<br /> <br />
+			<h:form>
+				<h:dataTable class="table table-borderless"
+					value="#{rawMaterialBean.materials}" var="e" border="2"
+					rendered="#{not rawMaterialBean.showForm}">
+					<h:column id="c1">
+						<f:facet name="header">
+							<center><p:outputLabel value="Id" /></center>
+						</f:facet>
+						<center><p:outputLabel value="#{e.id}" /></center>
+					</h:column>
+					<h:column id="c2">
+						<f:facet name="header">
+							<center><p:outputLabel value="Description" /></center>
+						</f:facet>
+						<center><p:outputLabel value="#{e.description}" /></center>
+					</h:column>
+					<h:column id="c3">
+						<f:facet name="header">
+							<center><p:outputLabel value="Quantity" /></center>
+						</f:facet>
+						<center><p:outputLabel value="#{e.quantity}" /></center>
+					</h:column>
+					<h:column id="c4">
+						<f:facet name="header">
+							<center><p:outputLabel value="Price" /></center>
+						</f:facet>
+						<center><p:outputLabel value="#{e.price}" /></center>
+					</h:column>
+					<h:column id="c5">
+						<f:facet name="header">
+							<center><p:outputLabel value="Action" /></center>
+						</f:facet>
+						<center>
+							<h:commandButton styleClass="btn btn-warning"
+								action="#{rawMaterialBean.doSelect()}" value="update">
+								<f:setPropertyActionListener value="#{e}"
+									target="#{rawMaterialBean.rawMaterial}"></f:setPropertyActionListener>
+							</h:commandButton>
+						</center>
+					</h:column>
+					<h:column id="c6">
+						<f:facet name="header">
+							<center><p:outputLabel value="Action" /></center>
+						</f:facet>
+						<center>
+							<h:commandButton styleClass="btn btn-danger"
+								action="#{rawMaterialBean.doDeleteRawMaterial()}" value="delete">
+								<f:setPropertyActionListener value="#{e}"
+									target="#{rawMaterialBean.rawMaterial}"></f:setPropertyActionListener>
+							</h:commandButton>
+						</center>
+					</h:column>
+				</h:dataTable>
+				<br></br>
+				<br></br>
+				<br></br>
+				<center>
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:outputLabel value="Provider : " />
+						<p:selectOneMenu value="#{rawMaterialBean.idProvider}">
+							<f:selectItem itemLabel="please select" />
+							<f:selectItems value="#{rawMaterialBean.providers}" var="p"
+								itemLabel="#{p.name}" itemValue="#{p.id}" />
+						</p:selectOneMenu>
+						<p:outputLabel value="Description : " />
+						<p:inputText value="#{rawMaterialBean.rawMaterial.description}" />
+						<p:outputLabel value="Quantity" />
+						<p:inputText value="#{rawMaterialBean.rawMaterial.quantity}" />
+						<p:outputLabel value="Price" />
+						<p:inputText value="#{rawMaterialBean.rawMaterial.price}" />
+						<br></br>
+						<center>
+							<h:commandButton action="#{rawMaterialBean.doAddRawMaterial()}"
+								value=" Add " class="btn btn-success" />
+						</center>
+					</h:panelGrid>
+				</center>
+
+			</h:form>
+		</div>
+
+	</ui:define>
+</ui:composition>

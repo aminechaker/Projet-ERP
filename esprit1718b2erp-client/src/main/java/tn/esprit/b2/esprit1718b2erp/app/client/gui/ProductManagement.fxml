@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b2.esprit1718b2erp.app.client.controller.ProductManagementController">
+    <children>
+        <TabPane prefHeight="700.0" prefWidth="1070.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Add new Product">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A7A7A7;">
+                            <children>
+                                <Label fx:id="brandLabel" layoutX="213.0" layoutY="144.0" text="Brand :" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                                <JFXTextField fx:id="marque" layoutX="359.0" layoutY="145.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font></JFXTextField>
+                                <JFXTextField fx:id="description" layoutX="359.0" layoutY="223.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font></JFXTextField>
+                                <Label fx:id="descLabel" layoutX="213.0" layoutY="222.0" text="Description :" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                                <JFXTextField fx:id="price" layoutX="359.0" layoutY="292.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font></JFXTextField>
+                                <Label fx:id="priceLabel" layoutX="213.0" layoutY="291.0" text="Price :" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                                <JFXComboBox fx:id="components" layoutX="710.0" layoutY="141.0" onAction="#addComponents" prefHeight="25.0" prefWidth="135.0" unFocusColor="#dce7f5" />
+                                <Label fx:id="compLabel" layoutX="581.0" layoutY="140.0" text="Components :" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                                <TextArea fx:id="componentList" editable="false" layoutX="580.0" layoutY="180.0" prefHeight="146.0" prefWidth="266.0" />
+                                <JFXButton layoutX="512.0" layoutY="381.0" onAction="#AddProduct" prefHeight="36.0" prefWidth="74.0" text="Add" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font></JFXButton>
+                                <JFXButton layoutX="1072.0" layoutY="621.0" onAction="#Return" prefHeight="36.0" prefWidth="74.0" text="Return" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Update Product">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A7A7A7;">
+                     <children>
+                        <Label layoutX="419.0" layoutY="130.0" text="Product :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <JFXComboBox fx:id="productComboBox" layoutX="505.0" layoutY="126.0" onAction="#setPrice" prefHeight="25.0" prefWidth="155.0" unFocusColor="#dce7f5" />
+                        <Label layoutX="419.0" layoutY="194.0" prefHeight="17.0" prefWidth="50.0" text="Price :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <JFXTextField fx:id="newPrice" layoutX="505.0" layoutY="190.0" prefHeight="25.0" prefWidth="153.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font></JFXTextField>
+                        <JFXButton layoutX="557.0" layoutY="256.0" onAction="#UpdateProduct" text="Update" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font></JFXButton>
+                        <JFXButton layoutX="634.0" layoutY="632.0" onAction="#Return" text="Return" />
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Available Product List">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A7A7A7;">
+                     <children>
+                        <TableView fx:id="ProductTable" layoutX="99.0" layoutY="50.0" prefHeight="387.0" prefWidth="503.0">
+                          <columns>
+                            <TableColumn fx:id="descTable" prefWidth="163.0" text="Description" />
+                            <TableColumn fx:id="priceTable" prefWidth="168.0" text="Price" />
+                              <TableColumn fx:id="quantityTable" prefWidth="171.0" text="Quantity" />
+                          </columns>
+                        </TableView>
+                        <JFXButton layoutX="535.0" layoutY="473.0" onAction="#DeleteProduct" text="Delete" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font></JFXButton>
+                        <JFXButton layoutX="634.0" layoutY="632.0" onAction="#Return" text="Return" />
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Components List of Product">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A7A7A7;">
+                     <children>
+                        <TableView fx:id="CompononentTable" layoutX="118.0" layoutY="147.0" prefHeight="200.0" prefWidth="496.0">
+                          <columns>
+                            <TableColumn fx:id="idTC" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="descTC" prefWidth="420.0" text="Description" />
+                          </columns>
+                        </TableView>
+                        <JFXComboBox fx:id="ProductCombobox" layoutX="253.0" layoutY="48.0" onAction="#selectProduct" prefHeight="25.0" prefWidth="152.0" unFocusColor="#dce7f5" />
+                        <Label layoutX="186.0" layoutY="52.0" text="Product :" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                        <JFXButton layoutX="634.0" layoutY="632.0" onAction="#Return" text="Return" />
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

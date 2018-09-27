@@ -1,0 +1,181 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/index.xhtml">
+
+	<ui:define name="pageTitle">
+				Sales PAGE
+			</ui:define>
+	<ui:define name="pageContent">
+
+		<div>
+			<br />
+			<h2>Quotation</h2>
+			<br /> <br />
+			<h:form>
+				<p:tabView>
+					<p:tab title="Add quotation">
+
+						<h:panelGrid columns="2" cellpadding="5">
+							<p:outputLabel value="Client : " />
+							<p:selectOneMenu value="#{salesBean.idContact}">
+								<f:selectItem itemLabel="please select" />
+								<f:selectItems value="#{salesBean.contacts}" var="c"
+									itemLabel="#{c.name}" itemValue="#{c.id}" />
+							</p:selectOneMenu>
+							<p:outputLabel value="Settlement : " />
+							<p:selectOneMenu value="#{salesBean.quotation.settelment}">
+								<f:selectItem itemLabel="please select" />
+								<f:selectItem itemLabel="Cheque" itemValue="Cheque" />
+								<f:selectItem itemLabel="Liquide" itemValue="Liquide" />
+								<f:selectItem itemLabel="Credit" itemValue="Credit" />
+							</p:selectOneMenu>
+							<p:outputLabel value="Product : " />
+							<p:selectOneMenu value="#{salesBean.idProduct}">
+								<f:selectItem itemLabel="please select" />
+								<f:selectItems value="#{salesBean.products}" var="p"
+									itemLabel="#{p.description}" itemValue="#{p.id}" />
+							</p:selectOneMenu>
+							<p:outputLabel value="Quantity" />
+							<p:inputText value="#{salesBean.quotation.quantity}" />
+							<p:outputLabel value="Taxes : " />
+							<p:selectOneMenu value="#{salesBean.quotation.taxes}">
+								<f:selectItem itemLabel="please select" />
+								<f:selectItem itemLabel="7%" itemValue="0.07" />
+								<f:selectItem itemLabel="13%" itemValue="0.13" />
+								<f:selectItem itemLabel="19%" itemValue="0.19" />
+							</p:selectOneMenu>
+							<p:calendar id="popup"
+								value="#{salesBean.quotation.expiringDate}">
+								<f:convertDateTime pattern="dd/mm/yyyy" />
+							</p:calendar>
+							<h:commandButton action="#{salesBean.doAddSale()}" value=" Add "
+								styleClass="ui-priority-primary" />
+							<p:messages styleClass="error" />
+						</h:panelGrid>
+					</p:tab>
+
+					<br></br>
+					<br></br>
+					<br></br>
+					<p:tab title="Quotations List">
+						<p:dataTable class="" value="#{salesBean.quotations1}" var="q"
+							border="2" rendered="#{not salesBean.showForm}">
+
+							<p:column id="c1">
+								<f:facet name="header">
+									<p:outputLabel value="Product" />
+								</f:facet>
+								<p:outputLabel value="#{q.product}" />
+							</p:column>
+							<p:column id="c2">
+								<f:facet name="header">
+									<p:outputLabel value="Client" />
+								</f:facet>
+								<p:outputLabel value="#{q.contact}" />
+							</p:column>
+							<p:column id="c3">
+								<f:facet name="header">
+									<p:outputLabel value="Quantity" />
+								</f:facet>
+								<p:outputLabel value="#{q.quantity}" />
+							</p:column>
+
+							<p:column id="c4">
+								<f:facet name="header">
+									<p:outputLabel value="Taxes" />
+								</f:facet>
+								<p:outputLabel value="#{q.taxes}" />
+							</p:column>
+							<p:column id="c5">
+								<f:facet name="header">
+									<p:outputLabel value="Final Price" />
+								</f:facet>
+								<p:outputLabel value="#{q.finalPrice}" />
+							</p:column>
+							<p:column id="c6">
+								<f:facet name="header">
+									<p:outputLabel value="Action" />
+								</f:facet>
+								<h:commandButton type="button" onclick="PF('dlg1').show()"
+									value="update">
+									<f:setPropertyActionListener value="#{q}"
+										target="#{salesBean.quotation}"></f:setPropertyActionListener>
+								</h:commandButton>
+							</p:column>
+							<p:column id="c7">
+								<f:facet name="header">
+									<p:outputLabel value="Action" />
+								</f:facet>
+								<h:commandButton action="#{salesBean.doValidate()}"
+									value="validate">
+									<f:setPropertyActionListener value="#{q}"
+										target="#{salesBean.quotation}"></f:setPropertyActionListener>
+								</h:commandButton>
+							</p:column>
+							<p:column id="c8">
+								<f:facet name="header">
+									<p:outputLabel value="Action" />
+								</f:facet>
+								<h:commandButton action="#{salesBean.doDeleteSale()}"
+									value="delete">
+									<f:setPropertyActionListener value="#{q}"
+										target="#{salesBean.quotation}"></f:setPropertyActionListener>
+								</h:commandButton>
+							</p:column>
+						</p:dataTable>
+					</p:tab>
+				</p:tabView>
+
+
+			</h:form>
+
+			<p:dialog header="Basic Dialog" widgetVar="dlg1" minHeight="40">
+				<h:form>
+					<h:panelGrid columns="2" cellpadding="5">
+						<p:outputLabel value="Client : " />
+						<p:selectOneMenu value="#{salesBean.idContact}">
+							<f:selectItem itemLabel="please select" />
+							<f:selectItems value="#{salesBean.contacts}" var="c"
+								itemLabel="#{c.name}" itemValue="#{c.id}" />
+						</p:selectOneMenu>
+						<p:outputLabel value="Settlement : " />
+						<p:selectOneMenu value="#{salesBean.quotation.settelment}">
+							<f:selectItem itemLabel="please select" />
+							<f:selectItem itemLabel="Cheque" itemValue="Cheque" />
+							<f:selectItem itemLabel="Liquide" itemValue="Liquide" />
+							<f:selectItem itemLabel="Credit" itemValue="Credit" />
+						</p:selectOneMenu>
+						<p:outputLabel value="Product : " />
+						<p:selectOneMenu value="#{salesBean.idProduct}">
+							<f:selectItem itemLabel="please select" />
+							<f:selectItems value="#{salesBean.products}" var="p"
+								itemLabel="#{p.description}" itemValue="#{p.id}" />
+						</p:selectOneMenu>
+						<p:outputLabel value="Quantity" />
+						<p:inputText value="#{salesBean.quotation.quantity}" />
+						<p:outputLabel value="Taxes : " />
+						<p:selectOneMenu value="#{salesBean.quotation.taxes}">
+							<f:selectItem itemLabel="please select" />
+							<f:selectItem itemLabel="7%" itemValue="0.07" />
+							<f:selectItem itemLabel="13%" itemValue="0.13" />
+							<f:selectItem itemLabel="19%" itemValue="0.19" />
+						</p:selectOneMenu>
+						<p:calendar id="popup" value="#{salesBean.quotation.expiringDate}">
+							<f:convertDateTime pattern="dd/mm/yyyy" />
+						</p:calendar>
+
+						<p:messages styleClass="error" />
+						<h:commandButton action="#{salesBean.doUpdate()}" value=" Update "
+							styleClass="ui-priority-primary" />
+					</h:panelGrid>
+
+
+
+				</h:form>
+			</p:dialog>
+		</div>
+
+	</ui:define>
+</ui:composition>

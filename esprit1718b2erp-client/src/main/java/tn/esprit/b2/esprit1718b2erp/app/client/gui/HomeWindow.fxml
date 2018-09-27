@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: #A7A7A7;" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b2.esprit1718b2erp.app.client.controller.HomeWindowController">
+    <children>
+        <JFXToolbar layoutX="300.0" layoutY="14.0" prefHeight="100.0" prefWidth="1360.0" style="-fx-min-height: 42; -fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            
+                    <ImageView fitHeight="100.0" fitWidth="290.0" layoutX="1.0"  pickOnBounds="true" smooth="true">
+         <image>
+            <Image url="@../ressources/logoerp.PNG" />
+         </image>
+      </ImageView>
+                  
+        </JFXToolbar>
+        <VBox layoutY="100.0" prefHeight="720.0" prefWidth="290.0" style="-fx-background-color: #2A3F54;">
+            <children>
+                <Accordion layoutY="200.0" prefHeight="700.0" prefWidth="290.0">
+                    <panes>
+                        <TitledPane fx:id="crmPane" prefWidth="300.0" style=" -fx-background-color:#DCE7F5; -fx-focus-color: transparent; -fx-text-fill: #006FD8;" animated="false"  text="Contact Relation Management">
+                            <font>
+                                <Font name="Roboto Bold" size="15.0" />
+                            </font>
+                           
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="280.0" style="-fx-background-color: #2A3F54;" >
+                                    <children>
+                                        <JFXButton prefHeight="42.0" prefWidth="280.0" style="-fx-alignment: left;" styleClass="nav-button" onAction="#ContactMangement" text="Contact Relation Management" textFill="#a1aec4">
+                                            <font>
+                                                <Font name="Roboto Bold" size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <FontAwesomeIconView fill="#a1aec4" glyphName="USERS" size="14.0" wrappingWidth="43.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton layoutY="42" prefHeight="42.0" prefWidth="280.0" style="-fx-alignment: left;" styleClass="nav-button" onAction="#AppointmentManagement" text="Appointments Management" textFill="#a1aec4">
+                                            <font>
+                                                <Font name="Roboto Bold" size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <FontAwesomeIconView fill="#a1aec4" glyphName="CALENDAR" size="14.0" wrappingWidth="43.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton layoutY="84" prefHeight="42.0" prefWidth="280.0" style="-fx-alignment: left;" styleClass="nav-button" onAction="#ClaimsManagement" text="Claims Management" textFill="#a1aec4">
+                                            <font>
+                                                <Font name="Roboto Bold" size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <FontAwesomeIconView fill="#a1aec4" glyphName="FILE_ALT" size="14.0" wrappingWidth="43.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <!--<JFXButton layoutX="-1.0" layoutY="2.0" onAction="#ContactMangement" prefHeight="25.0" prefWidth="202.0" text="Contact Management" />
+                                        <JFXButton layoutX="-1.0" layoutY="27.0" onAction="#AppointmentManagement" prefHeight="25.0" prefWidth="202.0" text="Appointment Management" />
+                                        <JFXButton layoutX="-1.0" layoutY="52.0" onAction="#ClaimsManagement" prefHeight="25.0" prefWidth="202.0" text="Claims Management" />-->
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane fx:id="salePane" animated="false" style=" -fx-background-color:#DCE7F5; -fx-focus-color: transparent; -fx-text-fill: #006FD8;" text="Sales and Marketing">
+                            <font>
+                                <Font name="Roboto Bold" size="15.0" />
+                            </font>
+                            
+                            <content>
+                                <AnchorPane style="-fx-background-color: #2A3F54;" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <JFXButton prefHeight="42.0" prefWidth="280.0" onAction="#salesManagement" style="-fx-alignment: left;" styleClass="nav-button" text="Sales Management" textFill="#a1aec4">
+                                            <font>
+                                                <Font name="Roboto Bold" size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <FontAwesomeIconView fill="#a1aec4" glyphName="MONEY" size="14.0" wrappingWidth="43.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton layoutY="42" prefHeight="42.0" prefWidth="280.0" onAction="#eventsManagement" style="-fx-alignment: left;" styleClass="nav-button" text="Events Management" textFill="#a1aec4">
+                                            <font>
+                                                <Font name="Roboto Bold" size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <FontAwesomeIconView fill="#a1aec4" glyphName="DATABASE" size="14.0" wrappingWidth="43.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane fx:id="projectPane" animated="false" style=" -fx-background-color:#DCE7F5; -fx-focus-color: transparent; -fx-text-fill: #006FD8;" text="Projects Management">
+                            <font>
+                                <Font name="Roboto Bold" size="15.0" />
+                            </font>
+                           
+                            <content>
+                                <AnchorPane style="-fx-background-color: #2A3F54;" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <JFXButton prefHeight="42.0" prefWidth="280.0" onAction="#projectManagement" style="-fx-alignment: left;" styleClass="nav-button" text="Projects Management" textFill="#a1aec4">
+                                            <font>
+                                                <Font name="Roboto Bold" size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <FontAwesomeIconView fill="#a1aec4" glyphName="WRENCH" size="14.0" wrappingWidth="43.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton layoutY="42" prefHeight="42.0" prefWidth="280.0" onAction="#taskManagement" style="-fx-alignment: left;" styleClass="nav-button" text="Task Management" textFill="#a1aec4">
+                                            <font>
+                                                <Font name="Roboto Bold" size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <FontAwesomeIconView fill="#a1aec4" glyphName="LINE_CHART" size="14.0" wrappingWidth="43.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton layoutY="84" prefHeight="42.0" prefWidth="280.0" onAction="#incidentManagement" style="-fx-alignment: left;" styleClass="nav-button" text="Incidents Management" textFill="#a1aec4">
+                                            <font>
+                                                <Font name="Roboto Bold" size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <FontAwesomeIconView fill="#a1aec4" glyphName="WARNING" size="14.0" wrappingWidth="43.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                    </children>
+           
+</AnchorPane>
+</content>
+</TitledPane>
+<TitledPane fx:id="productPane" animated="false" style=" -fx-background-color:#DCE7F5; -fx-focus-color: transparent; -fx-text-fill: #006FD8;" text="Products Management">
+    <font>
+        <Font name="Roboto Bold" size="15.0" />
+    </font>
+    
+    <content>
+        <AnchorPane style="-fx-background-color: #2A3F54;" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                <JFXButton prefHeight="42.0" prefWidth="280.0" onAction="#rawMaterial" style="-fx-alignment: left;" styleClass="nav-button" text="Raw Materials" textFill="#a1aec4">
+                    <font>
+                        <Font name="Roboto Bold" size="13.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="#a1aec4" glyphName="FILE" size="14.0" wrappingWidth="43.0" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton layoutY="42.0" prefHeight="42.0" prefWidth="280.0" onAction="#products" style="-fx-alignment: left;" styleClass="nav-button" text="Products" textFill="#a1aec4">
+                    <font>
+                        <Font name="Roboto Bold" size="13.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="#a1aec4" glyphName="DATABASE" size="14.0" wrappingWidth="43.0" />
+                    </graphic>
+                </JFXButton>
+            </children>
+        </AnchorPane>
+    </content>
+</TitledPane>
+<TitledPane fx:id="manufacturingPane" animated="false" style=" -fx-background-color:#DCE7F5; -fx-focus-color: transparent; -fx-text-fill: #006FD8;" text="Manufacturing and Inventory">
+    <font>
+        <Font name="Roboto Bold" size="15.0" />
+    </font>
+    
+    <content>
+        <AnchorPane style="-fx-background-color: #2A3F54;" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                <JFXButton prefHeight="42.0" prefWidth="280.0" onAction="#manufacturing" style="-fx-alignment: left;" styleClass="nav-button" text="Manufacturing Management" textFill="#a1aec4">
+                    <font>
+                        <Font name="Roboto Bold" size="13.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="#a1aec4" glyphName="WRENCH" size="14.0" wrappingWidth="43.0" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton layoutY="42" prefHeight="42.0" prefWidth="280.0" style="-fx-alignment: left;" onAction="#inventory" styleClass="nav-button" text="Inventory Management" textFill="#a1aec4">
+                    <font>
+                        <Font name="Roboto Bold" size="13.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="#a1aec4" glyphName="FILE" size="14.0" wrappingWidth="43.0" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton layoutY="84" prefHeight="42.0" prefWidth="280.0" style="-fx-alignment: left;" styleClass="nav-button" onAction="#manifacturingPlanning" text="Manufacturing Planning" textFill="#a1aec4">
+                    <font>
+                        <Font name="Roboto Bold" size="13.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="#a1aec4" glyphName="CALENDAR" size="14.0" wrappingWidth="43.0" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton layoutY="126" prefHeight="42.0" prefWidth="280.0" style="-fx-alignment: left;" styleClass="nav-button" onAction="#manufacturingStatistique" text="Manufacturing Statistique" textFill="#a1aec4">
+                    <font>
+                        <Font name="Roboto Bold" size="13.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="#a1aec4" glyphName="LINE_CHART" size="14.0" wrappingWidth="43.0" />
+                    </graphic>
+                </JFXButton>
+            </children>
+        </AnchorPane>
+    </content>
+</TitledPane>
+<TitledPane fx:id="financialPane" animated="false" style=" -fx-background-color:#DCE7F5; -fx-focus-color: transparent; -fx-text-fill: #006FD8;" text="Financial Management">
+    <font>
+        <Font name="Roboto Bold" size="15.0" />
+    </font>
+   
+    <content>
+        <AnchorPane style="-fx-background-color: #2A3F54;" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+    </content>
+</TitledPane>
+</panes>
+</Accordion>
+<!-- 
+<Label prefHeight="60.0" prefWidth="140.0" style="-fx-alignment: center; -fx-font-size: 16; -fx-text-fill: #7387A8; -fx-border-color: #7387A8; -fx-border-width: 0 0 2 0;" text="NAVIGATION" />
+<JFXButton fx:id="btnHome" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Home" textFill="#a1aec4">
+   <font>
+      <Font name="Roboto Bold" size="14.0" />
+   </font>
+   <graphic>
+      <FontAwesomeIconView fill="#a1aec4" glyphName="DASHBOARD" size="17.0" wrappingWidth="43.0" />
+   </graphic>
+</JFXButton>
+<JFXButton fx:id="btnPricing" layoutX="10.0" layoutY="67.0" onAction="#switchPricing" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Pricing" textFill="#a1aec4">
+   <font>
+      <Font name="Roboto Bold" size="14.0" />
+   </font>
+   <graphic>
+      <MaterialDesignIconView fill="#a1aec4" glyphName="SHOPPING" size="17.0" wrappingWidth="42.99997329711914" />
+   </graphic>
+</JFXButton>
+<JFXButton fx:id="btnContacts" layoutX="10.0" layoutY="109.0" onAction="#switchContacts" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Contacts" textFill="#a1aec4">
+   <font>
+      <Font name="Roboto Bold" size="14.0" />
+   </font>
+   <graphic>
+      <FontAwesomeIconView fill="#a1aec4" glyphName="GROUP" size="17.0" wrappingWidth="43.0" />
+   </graphic>
+</JFXButton>
+<JFXButton fx:id="btnWidgets" layoutX="10.0" layoutY="151.0" onAction="#switchWidget" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Widgets" textFill="#a1aec4">
+   <font>
+      <Font name="Roboto Bold" size="14.0" />
+   </font>
+   <graphic>
+      <MaterialDesignIconView fill="#a1aec4" glyphName="VIEW_GRID" size="17.0" wrappingWidth="42.99997329711914" />
+   </graphic>
+</JFXButton>
+<JFXButton fx:id="btnProfile" layoutX="10.0" layoutY="193.0" onAction="#switchProfile" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Profile" textFill="#a1aec4">
+   <font>
+      <Font name="Roboto Bold" size="14.0" />
+   </font>
+   <graphic>
+      <FontAwesomeIconView fill="#a1aec4" glyphName="USER" size="17.0" wrappingWidth="43.0" />
+   </graphic>
+</JFXButton>
+<JFXButton fx:id="btnAlerts" layoutX="10.0" layoutY="235.0" onAction="#switchAlert" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Alerts" textFill="#a1aec4">
+   <font>
+      <Font name="Roboto Bold" size="14.0" />
+   </font>
+   <graphic>
+      <FontAwesomeIconView fill="#a1aec4" glyphName="EXCLAMATION_TRIANGLE" size="17.0" wrappingWidth="43.0" />
+   </graphic>
+</JFXButton>
+<JFXButton fx:id="btnControls" onAction="#switchControls" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Controls" textFill="#a1aec4">
+   <font>
+      <Font name="Roboto Bold" size="14.0" />
+   </font>
+   <graphic>
+      <FontAwesomeIconView fill="#a1aec4" glyphName="ASTERISK" size="17.0" wrappingWidth="43.0" />
+   </graphic>
+</JFXButton>
+-->
+</children>
+</VBox>
+<AnchorPane fx:id="globalAnchor" layoutX="290.0" layoutY="100.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="1160.0">
+         <children>
+            <ScrollPane fx:id="scrollPane" prefHeight="700.0" prefWidth="1070.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1070.0" />
+              </content>
+            </ScrollPane>
+         </children>
+         </AnchorPane>
+</children>
+</AnchorPane>

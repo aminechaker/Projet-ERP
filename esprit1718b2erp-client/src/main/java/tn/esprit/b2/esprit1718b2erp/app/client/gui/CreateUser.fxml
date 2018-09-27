@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="537.0" prefWidth="600.0" style="-fx-background-color: #1f4980;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b2.esprit1718b2erp.app.client.controller.CreateUserController">
+   <children>
+      <Label layoutX="142.0" layoutY="81.0" text="Name :" textFill="#dce7f5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="nameText" layoutX="254.0" layoutY="79.0" unFocusColor="#dce7f5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="loginText" layoutX="254.0" layoutY="126.0" unFocusColor="#dce7f5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="142.0" layoutY="128.0" text="Login :" textFill="#dce7f5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="142.0" layoutY="216.0" text="Mobile :" textFill="#dce7f5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="mobileText" layoutX="254.0" layoutY="214.0" unFocusColor="#dce7f5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="142.0" layoutY="169.0" text="Password :" textFill="#dce7f5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="142.0" layoutY="313.0" text="Email :" textFill="#dce7f5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="emailText" layoutX="254.0" layoutY="311.0" unFocusColor="#dce7f5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="adresseText" layoutX="254.0" layoutY="262.0" unFocusColor="#dce7f5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="142.0" layoutY="266.0" text="Adresse :" textFill="#dce7f5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXPasswordField fx:id="passwordText" layoutX="254.0" layoutY="170.0" unFocusColor="#dce7f5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton layoutX="262.0" layoutY="387.0" onAction="#createUser" text="Create" textFill="#006fd8">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

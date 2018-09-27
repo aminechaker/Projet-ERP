@@ -1,0 +1,109 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/index.xhtml">
+
+	<ui:define name="pageTitle">
+			Market 
+			</ui:define>
+	<ui:define name="pageContent">
+
+		<div>
+			<br />
+			<h2>Market</h2>
+			<br /> <br />
+			
+			<h:form>
+
+		
+
+
+<h:dataTable value="#{realTimeBean.quote}" var="quotes" class="table table-borderless">
+						<h:column>
+							<f:facet name="header" >
+								<h:outputText value="Symbole" />
+							</f:facet>
+							<h:outputText value="#{quotes.symbol}" />
+						</h:column>
+					
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name" />
+							</f:facet>
+							<h:outputText value="#{quotes.name}" />
+						</h:column>
+						
+						
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="TradeTime" />
+							</f:facet>
+							<h:outputText value="#{quotes.tradeTimestamp}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Open" />
+							</f:facet>
+							<h:outputText value="#{quotes.open}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Close" />
+							</f:facet>
+							<h:outputText value="#{quotes.close}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="symbole" />
+							</f:facet>
+							<h:outputText value="#{quotes.symbol}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Volume" />
+							</f:facet>
+							<h:outputText value="#{quotes.volume}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Change" />
+							</f:facet>
+							<h:outputText value="#{quotes.netChange}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="LastPrice" />
+							</f:facet>
+							<h:outputText value="#{quotes.lastPrice}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="%Change" />
+							</f:facet>
+							<h:outputText value="#{quotes.percentChange}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="High" />
+							</f:facet>
+							<h:outputText value="#{quotes.high}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Low" />
+							</f:facet>
+							<h:outputText value="#{quotes.low}" />
+						</h:column>
+
+
+
+
+					</h:dataTable>
+					</h:form>
+					</div>
+					</ui:define>
+</ui:composition>
+				

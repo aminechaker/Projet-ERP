@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b2.esprit1718b2erp.app.client.controller.RawMaterialManagementController">
+    <children>
+        <TabPane prefHeight="700.0" prefWidth="1070.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Add new Raw Material">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A7A7A7;">
+                            <children>
+                                <Label layoutX="319.0" layoutY="178.0" text="Description :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                                <JFXTextField fx:id="descText" layoutX="436.0" layoutY="174.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font></JFXTextField>
+                                <JFXTextField fx:id="quantityText" layoutX="436.0" layoutY="234.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font></JFXTextField>
+                                <Label layoutX="319.0" layoutY="238.0" text="Quantity :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                                <JFXButton layoutX="397.0" layoutY="395.0" onAction="#addRawMaterial" prefHeight="25.0" prefWidth="79.0" text="Add" textFill="#006fd8">
+                           <font>
+                              <Font size="18.0" />
+                           </font></JFXButton>
+                                <JFXButton layoutX="634.0" layoutY="632.0" onAction="#returnbtn" text="Return" />
+                        <JFXTextField fx:id="priceText" layoutX="436.0" layoutY="300.0" unFocusColor="#dce7f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXTextField>
+                        <Label layoutX="331.0" layoutY="304.0" text="Price :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="319.0" layoutY="121.0" text="Provider :" textFill="#1f4980">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox fx:id="providerComboBox" layoutX="436.0" layoutY="122.0" prefHeight="25.0" prefWidth="170.0" unFocusColor="#dce7f5" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Raw Materials List">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A7A7A7;">
+                            <children>
+                                <TableView fx:id="RawMaterialTable" layoutX="95.0" layoutY="151.0" prefHeight="253.0" prefWidth="511.0">
+                                    <columns>
+                                        <TableColumn fx:id="idT" prefWidth="82.0" text="ID" />
+                                        <TableColumn fx:id="descT" prefWidth="281.0" text="Description" />
+                                        <TableColumn fx:id="quantityT" prefWidth="147.0" text="Quantity" />
+                                    </columns>
+                                </TableView>
+                                <JFXButton layoutX="544.0" layoutY="436.0" onAction="#deleteRawMaterial" text="Delete" textFill="#006fd8">
+                           <font>
+                              <Font size="16.0" />
+                           </font></JFXButton>
+                                <JFXButton layoutX="645.0" layoutY="632.0" onAction="#Return" text="Return" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
